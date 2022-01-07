@@ -51,5 +51,5 @@ this doc offers the log aggregation solution leveraging on aws cloud services. l
    
    
 the solution diagram is shown as below:
-![Screen Shot 2022-01-07 at 12 09 57 PM](https://user-images.githubusercontent.com/97269758/148490219-04b2f696-a66b-4108-9213-ef1baec7d62a.png)
-
+assume that customer have on-prem system deployments at Singapore and Austrilia. Singapore will be the central hub for all logs. 
+![Screen Shot 2022-01-07 at 12 48 17 PM](https://user-images.githubusercontent.com/97269758/148493379-3d8a64f6-8ca8-4d66-9662-33701b725a28.png)
