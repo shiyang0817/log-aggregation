@@ -49,3 +49,7 @@ this doc offers the log aggregation solution leveraging on aws cloud services. l
    
    https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping
    
+   
+the solution diagram is shown as below:
+![Screen Shot 2022-01-07 at 12 09 57 PM](https://user-images.githubusercontent.com/97269758/148490219-04b2f696-a66b-4108-9213-ef1baec7d62a.png)
+
