@@ -8,12 +8,12 @@ this doc describes a log aggregation solution leveraging on aws cloud services. 
 ## 1. on-prem logs transfered to nearest aws region
 
 ### 1.1 first, a client agent needs to be installed on customers on-prem enviroment. the agent is named as Kinesis Agent
-   Please refer to the below link for further installation guidance:
+Please refer to the below link for further installation guidance:
    
-   https://docs.aws.amazon.com/streams/latest/dev/writing-with-agents.html
+https://docs.aws.amazon.com/streams/latest/dev/writing-with-agents.html
    
-   a sample of agent.json:　
-   ```
+a sample of agent.json:　
+```
    {
       "kinesis.endpoint": "kinesis.ap-southeast-1.amazonaws.com", 
       "flows": [
@@ -23,35 +23,34 @@ this doc describes a log aggregation solution leveraging on aws cloud services. 
                  }
        ]
     }
-    ```
+```
+
 ### 1.2 Kinesis Data Streams + Kinesis Data Firhose pipeline
 the log data will be transferred through the KDS + KDF pipepline and finally stored in s3 bucket.
 Please refer to the below link for further setup guidance:
    
-   https://docs.aws.amazon.com/firehose/latest/dev/writing-with-kinesis-streams.html
+https://docs.aws.amazon.com/firehose/latest/dev/writing-with-kinesis-streams.html
     
     
 ## 2. logs ingested and stored in different aws regions aggregation
+the aggregation of logs stored in different regions are achieved leveraging on aws s3 cross region replication feature.
+please refer to the below link for further guidance:
    
-   the aggregation of logs stored in different regions are achieved leveraging on aws s3 cross region replication feature.
-   please refer to the below link for further guidance:
-   
-   https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/replication-walkthrough1.html
+https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/replication-walkthrough1.html
 
 ## 3. analyze those logs through aws opensearch
+the logs stored in s3 will be ingested into opensearch service domain for further analysis.
+please refer to the lambda function explanation as the below link:
    
-   the logs stored in s3 will be ingested into opensearch service domain for further analysis.
-   please refer to the lambda function explanation as the below link:
+https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html#integrations-s3-lambda
    
-   https://docs.aws.amazon.com/opensearch-service/latest/developerguide/integrations.html#integrations-s3-lambda
+and the docs link below for detail packaging guidance:
    
-   and the docs link below for detail packaging guidance:
+https://docs.aws.amazon.com/lambda/latest/dg/python-package.html#python-package-create-package-no-dependency
    
-   https://docs.aws.amazon.com/lambda/latest/dg/python-package.html#python-package-create-package-no-dependency
+the lambda function needs to be authenticated by opensearch cluster. the authentication role mapping guidance is as below:
    
-   the lambda function needs to be authenticated by opensearch cluster. the authentication role mapping guidance is as below:
-   
-   https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping
+https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping
    
    
 the solution diagram is shown as below:
