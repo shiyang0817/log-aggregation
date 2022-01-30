@@ -7,7 +7,7 @@ How to guarantee that the on-prem deployed Kinesis agent can only access to Kine
 The key conception of this solution is the STS assumeRole mechanism provided by aws IAM service. By applying the STS assumeRole feature, an IAM user could get itself adhered to a service role, and functions as the service role, meaning that the permissions the IAM user has is exactly the same as the service role. 
 
 Leveraging on this feature, we set IAM User A who is a common IAM user, may possibly have many permissions and roles attached, IAM user B who is a special IAM user who does not have any permissions. We define a service role under IAM user A, the service role has just one permission policy, namely the AmazonKinesisFullAccess, to enable itself to manipulate Kinesis service. Then, we set IAM user B to assume this service role by configuring it in IAM user A's Trust Relationship tab. The json policy description file sample is as below:
-
+```
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -20,9 +20,9 @@ Leveraging on this feature, we set IAM User A who is a common IAM user, may poss
     }
   ]
 }
-
+```
 Next, we acquire IAM user B's security credentials (the ak and sk) from the root user. And then amend the kinesis agent.json file is below:
-
+```
 {
    "kinesis.endpoint": "kinesis.<specific region name>.amazonaws.com", 
    "assumeRoleARN": "arn:aws:iam::<account id>:role/<IAM user B>",
@@ -35,7 +35,7 @@ Next, we acquire IAM user B's security credentials (the ak and sk) from the root
               }
    ]
 }
-  
+```  
 Aftering finishing configuring the above, now the on-prem kinesis agent who now holds the security credentails of IAM user B, can get access to kinesis serivce intance created under IAM user A with the smallest authorization. the solution diagram is show as below.
 <img width="1159" alt="Screen Shot 2022-01-17 at 6 21 30 PM" src="https://user-images.githubusercontent.com/97269758/149751843-03e46941-d42c-4e25-be11-30ef5e8b4c33.png">
 
