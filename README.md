@@ -8,7 +8,7 @@ this doc describes a log aggregation solution leveraging on aws cloud services. 
 Tabel of Contents
 - [1. on-prem logs transfered to nearest aws region](#1-on-prem-logs-transfered-to-nearest-aws-region)
    - [1.1 first, a client agent needs to be installed on customers on-prem enviroment. the agent is named as Kinesis Agent](#11-first-a-client-agent-needs-to-be-installed-on-customers-on-prem-enviroment-the-agent-is-named-as-kinesis-agent)
-   - [1.2 Kinesis Data Streams + Kinesis Data Firhose pipeline](#1.2-Kinesis-Data-Streams-+-Kinesis-Data-Firhose-pipeline)
+   - [1.2 Kinesis Data Streams + Kinesis Data Firhose pipeline](#12-kinesis-data-streams--kinesis-data-firhose-pipeline)
 - [2. logs ingested and stored in different aws regions aggregation](#2-logs-ingested-and-stored-in-different-aws-regions-aggregation)
 ## 1. on-prem logs transfered to nearest aws region
 
