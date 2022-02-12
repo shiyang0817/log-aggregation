@@ -11,6 +11,7 @@ this doc describes a log aggregation solution leveraging on aws cloud services. 
    - [1.2 Kinesis Data Streams + Kinesis Data Firhose pipeline](#12-kinesis-data-streams--kinesis-data-firhose-pipeline)
 - [2. logs ingested and stored in different aws regions aggregation](#2-logs-ingested-and-stored-in-different-aws-regions-aggregation)
 - [3. analyze those logs through aws opensearch](#3-analyze-those-logs-through-aws-opensearch)
+- [4. solution diagram](#4-solution-diagram)
 ## 1. on-prem logs transfered to nearest aws region
 
 ### 1.1 first, a client agent needs to be installed on customers on-prem enviroment. the agent is named as Kinesis Agent
@@ -59,6 +60,7 @@ the lambda function needs to be authenticated by opensearch cluster. the authent
 https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping
    
    
+## 4. solution diagram
 the solution diagram is shown as below:
 
 assume that customer has on-prem system deployments at Singapore and Australia. Singapore will be the central hub for all logs. 
