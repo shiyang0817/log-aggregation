@@ -12,6 +12,9 @@ this doc describes a log aggregation solution leveraging on aws cloud services. 
 - [2. logs ingested and stored in different aws regions aggregation](#2-logs-ingested-and-stored-in-different-aws-regions-aggregation)
 - [3. analyze those logs through aws opensearch](#3-analyze-those-logs-through-aws-opensearch)
 - [4. solution diagram](#4-solution-diagram)
+- [5. related solution points: no.1 smallest authorization @edge](https://github.com/symeta/log-aggregation/tree/smallest-authorization-%40edge#smallest-authorization-edge)
+- [6. lambda get sub-dir from s3 bucket](https://github.com/symeta/log-aggregation/tree/lambda-get-sub-dir-from-s3-bucket#lambda-get-sub-dir-from-s3-bucket)
+
 ## 1. on-prem logs transfered to nearest aws region
 
 ### 1.1 first, a client agent needs to be installed on customers on-prem enviroment. the agent is named as Kinesis Agent
