@@ -46,7 +46,7 @@ https://docs.aws.amazon.com/firehose/latest/dev/writing-with-kinesis-streams.htm
 the aggregation of logs stored in different regions are achieved leveraging on aws s3 cross region replication feature.
 please refer to the below link for further guidance:
    
-https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/userguide/replication-walkthrough1.html
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-walkthrough1.html
 
 ## 3. analyze those logs through aws opensearch
 the logs stored in s3 will be ingested into opensearch service domain for further analysis.
