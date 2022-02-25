@@ -65,21 +65,20 @@ the lambda function needs to be authenticated by opensearch cluster. the authent
 https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping
 
 ## 5. configure alerting through kibana console
-Key Step 1. access kibana console, click Anomaly Detection button in the left panel to create an anomaly detector :
+* Key Step 1. access kibana console, click Anomaly Detection button in the left panel to create an anomaly detector :
 ![Anomaly detection  Dashboard](https://user-images.githubusercontent.com/97269758/155730566-20a58266-41f0-41a6-b38d-37660d00fb91.png)
 ![Open Distro for Elasticsearch](https://user-images.githubusercontent.com/97269758/155730612-7dcf7ef5-c8a7-4b4a-9371-f50aa06368ce.png)
-Key Step 2. add filter while creating the anomaly detector. this step is to configure the specific field that the detector watches:
+* Key Step 2. add filter while creating the anomaly detector. this step is to configure the specific field that the detector watches:
 ![Add filter](https://user-images.githubusercontent.com/97269758/155730968-24e8177e-452e-43a1-aaa0-afce559cca05.png)
-Key Step 3. configure model. this step is to configure the Random Cut Forrest model to define how the anomaly event is defiend and calculated.
+* Key Step 3. configure model. this step is to configure the Random Cut Forrest model to define how the anomaly event is defiend and calculated.
 ![Configure model](https://user-images.githubusercontent.com/97269758/155731726-ba14b24e-3cc6-4d8b-b8cb-859cf8933b67.png)
 for this case, we use count() as the aggregation method.
 ![Aggregation method](https://user-images.githubusercontent.com/97269758/155731770-9661a96b-289e-45a1-971c-b7bb77622b10.png)
-Key Step 4: switch back to the left panel and click the alerting button to create a monitor leveraging on the anomaly detector just created:
+* Key Step 4: switch back to the left panel and click the alerting button to create a monitor leveraging on the anomaly detector just created:
 ![Define monitor](https://user-images.githubusercontent.com/97269758/155731996-accb4b84-4429-401f-a7af-2123019e191e.png)
-Key Step 5: add a destination for the monitor: enabling the alerting to send out to email/sms/3rd party platform like dingding or feishu
+* Key Step 5: add a destination for the monitor: enabling the alerting to send out to email/sms/3rd party platform like dingding or feishu
 ![Amazon SNS](https://user-images.githubusercontent.com/97269758/155732568-0224c50a-b11f-4d3e-b9ad-529434c77237.png)
 
-## 6. solution diagram
 ## 6. solution diagram
 the solution diagram is shown as below:
 
