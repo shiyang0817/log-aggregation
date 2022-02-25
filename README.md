@@ -70,7 +70,7 @@ https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#f
 ![Open Distro for Elasticsearch](https://user-images.githubusercontent.com/97269758/155730612-7dcf7ef5-c8a7-4b4a-9371-f50aa06368ce.png)
 * Key Step 2. add filter while creating the anomaly detector. this step is to configure the specific field that the detector watches:
 ![Add filter](https://user-images.githubusercontent.com/97269758/155730968-24e8177e-452e-43a1-aaa0-afce559cca05.png)
-* Key Step 3. configure model. this step is to configure the Random Cut Forrest model to define how the anomaly event is defiend and calculated.
+* Key Step 3. configure model. this step is to configure the Random Cut Forrest model to define how the anomaly event is defined and calculated.
 ![Configure model](https://user-images.githubusercontent.com/97269758/155731726-ba14b24e-3cc6-4d8b-b8cb-859cf8933b67.png)
 for this case, we use count() as the aggregation method.
 ![Aggregation method](https://user-images.githubusercontent.com/97269758/155731770-9661a96b-289e-45a1-971c-b7bb77622b10.png)
