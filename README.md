@@ -11,9 +11,11 @@ this doc describes a log aggregation solution leveraging on aws cloud services. 
    - [1.2 Kinesis Data Streams + Kinesis Data Firhose pipeline](#12-kinesis-data-streams--kinesis-data-firhose-pipeline)
 - [2. logs ingested and stored in different aws regions aggregation](#2-logs-ingested-and-stored-in-different-aws-regions-aggregation)
 - [3. analyze those logs through aws opensearch](#3-analyze-those-logs-through-aws-opensearch)
-- [4. solution diagram](#4-solution-diagram)
-- [5. related solution points: no.1 smallest authorization @edge](https://github.com/symeta/log-aggregation/tree/smallest-authorization-%40edge#smallest-authorization-edge)
-- [6. related solution points: no.2 lambda get sub-dir from s3 bucket](https://github.com/symeta/log-aggregation/tree/lambda-get-sub-dir-from-s3-bucket#lambda-get-sub-dir-from-s3-bucket)
+- [4. set up index in aws opensearch](https://github.com/symeta/ES-Operation)
+- [5. configure alerting through kibana console](#5-configure-alerting-through-kibana-console)
+- [6. solution diagram](#4-solution-diagram)
+- [7. related solution points: no.1 smallest authorization @edge](https://github.com/symeta/log-aggregation/tree/smallest-authorization-%40edge#smallest-authorization-edge)
+- [8. related solution points: no.2 lambda get sub-dir from s3 bucket](https://github.com/symeta/log-aggregation/tree/lambda-get-sub-dir-from-s3-bucket#lambda-get-sub-dir-from-s3-bucket)
 
 ## 1. on-prem logs transfered to nearest aws region
 
@@ -61,9 +63,24 @@ https://docs.aws.amazon.com/lambda/latest/dg/python-package.html#python-package-
 the lambda function needs to be authenticated by opensearch cluster. the authentication role mapping guidance is as below:
    
 https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping
-   
-   
-## 4. solution diagram
+
+## 5. configure alerting through kibana console
+Key Step 1. access kibana console, click Anomaly Detection button in the left panel to create an anomaly detector :
+![Anomaly detection  Dashboard](https://user-images.githubusercontent.com/97269758/155730566-20a58266-41f0-41a6-b38d-37660d00fb91.png)
+![Open Distro for Elasticsearch](https://user-images.githubusercontent.com/97269758/155730612-7dcf7ef5-c8a7-4b4a-9371-f50aa06368ce.png)
+Key Step 2. add filter while creating the anomaly detector. this step is to configure the specific field that the detector watches:
+![Add filter](https://user-images.githubusercontent.com/97269758/155730968-24e8177e-452e-43a1-aaa0-afce559cca05.png)
+Key Step 3. configure model. this step is to configure the Random Cut Forrest model to define how the anomaly event is defiend and calculated.
+![Configure model](https://user-images.githubusercontent.com/97269758/155731726-ba14b24e-3cc6-4d8b-b8cb-859cf8933b67.png)
+for this case, we use count() as the aggregation method.
+![Aggregation method](https://user-images.githubusercontent.com/97269758/155731770-9661a96b-289e-45a1-971c-b7bb77622b10.png)
+Key Step 4: switch back to the left panel and click the alerting button to create a monitor leveraging on the anomaly detector just created:
+![Define monitor](https://user-images.githubusercontent.com/97269758/155731996-accb4b84-4429-401f-a7af-2123019e191e.png)
+Key Step 5: add a destination for the monitor: enabling the alerting to send out to email/sms/3rd party platform like dingding or feishu
+![Amazon SNS](https://user-images.githubusercontent.com/97269758/155732568-0224c50a-b11f-4d3e-b9ad-529434c77237.png)
+
+## 6. solution diagram
+## 6. solution diagram
 the solution diagram is shown as below:
 
 assume that customer has on-prem system deployments at Singapore and Australia. Singapore will be the central hub for all logs. 
