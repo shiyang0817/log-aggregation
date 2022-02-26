@@ -25,7 +25,7 @@ Please refer to the below link for further installation guidance:
 https://docs.aws.amazon.com/streams/latest/dev/writing-with-agents.html
    
 a sample of agent.json:　
-```
+```json
    {
       "kinesis.endpoint": "kinesis.ap-southeast-1.amazonaws.com", 
       "flows": [
